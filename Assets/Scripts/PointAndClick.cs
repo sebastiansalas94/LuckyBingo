@@ -12,7 +12,7 @@ public class PointAndClick : MonoBehaviour
 
     void Update()
     {
-        if (!Mouse.current.leftButton.wasPressedThisFrame) return;
+        if (!InputManager.Instance.GetInteractPressed()) return;
 
         Vector2 worldPos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Collider2D hit = Physics2D.OverlapPoint(worldPos);

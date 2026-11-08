@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -12,8 +11,19 @@ public class DialogueManager : MonoBehaviour
 {
     [HideInInspector] public static DialogueManager Instance { get; private set; }
     [HideInInspector] public bool dialogueIsPlaying { get; private set; }
-    [HideInInspector] public DialogueTrigger currentTrigger = null;
+    [HideInInspector] public bool canContinueToNextLine = false;
+
+    [Header("UI Objects")]
+    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private TextMeshProUGUI dialogueText;
+
+    [Header("Display Line Params")]
+    [SerializeField] private float typingSpeed = 0.04f;
+
     private Story currentStory;
+    private Coroutine displayLineCoroutine;
+
+    private int openedFrame;
 
 
     void Awake()
@@ -37,48 +47,77 @@ public class DialogueManager : MonoBehaviour
     void Update()
     {
         if (!dialogueIsPlaying) return;
-        if (Keyboard.current.spaceKey.wasPressedThisFrame || Mouse.current.leftButton.wasPressedThisFrame)
+        if (canContinueToNextLine  && InputManager.Instance.GetInteractPressed())
         {
             ContinueStory();
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJson)
+    public void EnterDialogueMode(TextAsset inkJSON)
     {
-        if (currentTrigger.dialoguePanel != null && currentTrigger.dialogueText != null)
-        {
-            currentStory = new Story(inkJson.text);
+        currentStory = new Story(inkJSON.text);
 
-            currentTrigger.dialoguePanel.SetActive(true);
-            dialogueIsPlaying = true;
-            ContinueStory();
-        }
+        openedFrame = Time.frameCount;
+        dialogueIsPlaying = true;
+        dialoguePanel.SetActive(true);
+
+        ContinueStory();
     }
 
-    private IEnumerator ExitDialogueMode()
+    private void ExitDialogueMode()
     {
-        if (currentTrigger.dialoguePanel != null && currentTrigger.dialogueText != null)
-        {
-            yield return new WaitForSeconds(0.2f);
-            dialogueIsPlaying = false;
-            currentTrigger.dialoguePanel.SetActive(false);
-            currentTrigger.dialogueText.text = "";
-            // hasDialoguePlayed[GameManager.Instance.currentCustomer.charId] = true;
-        }
+        dialogueIsPlaying = false;
+        dialoguePanel.SetActive(false);
+        dialogueText.text = "";
     }
 
     private void ContinueStory()
     {
-        if (currentTrigger.dialoguePanel != null && currentTrigger.dialogueText != null)
+        if (currentStory.canContinue)
         {
-            if (currentStory.canContinue)
+            if (displayLineCoroutine != null)
             {
-                currentTrigger.dialogueText.text = currentStory.Continue();
+                StopCoroutine(displayLineCoroutine);
             }
-            else
-            {
-                StartCoroutine(ExitDialogueMode());
-            }
+
+            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+
+            //HandleTags(currentStory.currentTags);
         }
+        else
+        {
+            ExitDialogueMode();
+        }
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        dialogueText.text = line;
+        dialogueText.maxVisibleCharacters = 0;
+
+        //continueIcon.SetActive(false);
+        canContinueToNextLine = false;
+
+        dialogueText.ForceMeshUpdate();
+        int totalVisibleChars = dialogueText.textInfo.characterCount;
+
+        int visibleCount = 0;
+        while (visibleCount <= totalVisibleChars)
+        {
+            if (Time.frameCount > openedFrame
+                && InputManager.Instance.GetInteractPressed())
+            {
+                dialogueText.maxVisibleCharacters = totalVisibleChars;
+                break;
+            }
+
+            dialogueText.maxVisibleCharacters = visibleCount;
+            visibleCount++;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        dialogueText.maxVisibleCharacters = totalVisibleChars;
+        //continueIcon.SetActive(true);
+        canContinueToNextLine = true;
     }
 }

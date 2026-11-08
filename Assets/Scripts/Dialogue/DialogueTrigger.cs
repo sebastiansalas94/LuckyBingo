@@ -6,8 +6,6 @@ using TMPro;
 public class DialogueTrigger : MonoBehaviour
 {
     public TextAsset inkJson;
-    public GameObject dialoguePanel;
-    public TextMeshProUGUI dialogueText;
 
 
     private void Awake()
@@ -22,7 +20,6 @@ public class DialogueTrigger : MonoBehaviour
 
     public void StartDialogue()
     {
-        DialogueManager.Instance.currentTrigger = this;
         DialogueManager.Instance.EnterDialogueMode(inkJson);
     }
 }
