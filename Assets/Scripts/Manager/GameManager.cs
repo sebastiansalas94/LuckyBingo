@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
@@ -7,6 +8,11 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager Instance { get; private set; }
     [HideInInspector] List<int> lottoNumbers;
+
+    public int ballSequence = 0;
+    public int ballSequenceStage = 0;
+
+    [SerializeField] private ControlHint Hint;
 
     private void Awake()
     {
@@ -32,5 +38,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ShowHint(Sprite hintIcon, string hintText)
+    {
+        Hint.Show(hintIcon, hintText);
+    }
+
+    public void HideHint(Sprite hintIcon, string hintText)
+    {
+        Hint.Hide();
     }
 }
