@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager Instance { get; private set; }
     [HideInInspector] List<int> lottoNumbers;
+    [SerializeField] private TextMeshPro lottoNumberText;
 
     public int ballSequence = 0;
     public int ballSequenceStage = 0;
@@ -31,7 +33,12 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        for (int i = 0; i < 5; i++)
+        {
+            int number = Random.Range(01, 100);
+            lottoNumberText.text += number.ToString("00") + " ";
+        }
+
     }
 
     // Update is called once per frame
