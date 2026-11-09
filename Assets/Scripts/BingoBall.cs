@@ -5,7 +5,7 @@ public class BingoBall : MonoBehaviour
 {
 
     [SerializeField] private TextMeshPro number;
-    [SerializeField] private string numberText;
+    [SerializeField] public string numberText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

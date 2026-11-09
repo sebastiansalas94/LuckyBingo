@@ -1,3 +1,4 @@
+using System;
 using Unity.Burst.CompilerServices;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -12,10 +13,12 @@ public class TV : MonoBehaviour, IInteractable
 
     [SerializeField] private Sprite hintIcon;
     [SerializeField] private string hintText = "Click to interact with the TV.";
+    private bool showHint = true;
 
     // From Interface IInteractable
     public Sprite HintIcon => hintIcon;
     public string HintText => hintText;
+    public bool ShowHint => showHint;
 
     private int stage = 0;
 
@@ -32,7 +35,7 @@ public class TV : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("TV clicked");
-
+        showHint = false;
         //GameManager.Instance.ShowHint(hintIcon, hintText);
 
         if (stage == 0) {
@@ -43,7 +46,7 @@ public class TV : MonoBehaviour, IInteractable
             SelectBall();
         }
 
-        //dt.StartDialogue(); 
+        // 
     }
 
     private void RumbleBingoBall()
@@ -58,5 +61,6 @@ public class TV : MonoBehaviour, IInteractable
         AudioManager.Instance.StopSFX();
         ballSpinner.GetComponent<BallAnimation>().StopBallAnimation();
         stage = 2;
+        dt.StartDialogue();
     }
 }

@@ -29,7 +29,7 @@ public class PointAndClick : MonoBehaviour
         {
             hovered = current;
 
-            if (hovered != null)
+            if (hovered != null && hovered.ShowHint)
                 hint.Show(hovered.HintIcon, hovered.HintText);
             else
                 hint.Hide();

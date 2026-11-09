@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         
     }
 
+    // Should the GameManager be responsible for showing hints? Maybe it should be the UIManager's responsibility. But for now, let's keep it here.
     public void ShowHint(Sprite hintIcon, string hintText)
     {
         Hint.Show(hintIcon, hintText);

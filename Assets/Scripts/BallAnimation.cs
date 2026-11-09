@@ -45,6 +45,6 @@ public class BallAnimation : MonoBehaviour
     {
         isSpinning = false;
         Transform picked = balls[Random.Range(0, balls.Count)];
-        picked.localScale *= 1.3f;
+        picked.localScale *= 1.5f;
     }
 }
