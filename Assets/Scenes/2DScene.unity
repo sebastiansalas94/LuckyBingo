@@ -662,6 +662,8 @@ MonoBehaviour:
   - {fileID: 1332426555}
   radius: 1
   speed: 180
+  numberChangeSFX1: {fileID: 8300000, guid: f790808e8b07144ee92194b154a9614c, type: 3}
+  numberChangeSFX2: {fileID: 8300000, guid: dc9372edca3c343ad8fd3504bb44e6f5, type: 3}
 --- !u!4 &411854105
 Transform:
   m_ObjectHideFlags: 0
@@ -2435,6 +2437,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1315913420}
   - component: {fileID: 1315913419}
+  - component: {fileID: 1315913421}
+  - component: {fileID: 1315913422}
+  - component: {fileID: 1315913423}
   m_Layer: 0
   m_Name: LottoPaper
   m_TagString: Untagged
@@ -2518,6 +2523,86 @@ Transform:
   - {fileID: 1140048110}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.682}
+--- !u!114 &1315913421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315913418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2f12022b002f91488f834694a6009d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LottoPaper
+  hintIcon: {fileID: 21300000, guid: 522dcca0b84ed3041a1bc5522e21f3f2, type: 3}
+  hintText: Press M key to show or hide the Lotto Paper.
+  maxInteractionHintLimit: 2
+  paperSFX: {fileID: 8300000, guid: 711b24328a2ad43a489b962d67463564, type: 3}
+--- !u!114 &1315913422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315913418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d186bf2a0ec7b7c44980ba84345a89cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  inkJson: {fileID: 4900000, guid: eb0520a152d6f7f46949d6f3c1b46f3a, type: 3}
+  inkJsonSequence1: {fileID: 0}
+  inkJsonSequence2: {fileID: 0}
+  inkJsonSequence3: {fileID: 0}
+  inkJsonSequence4: {fileID: 0}
+  inkJsonSequence5: {fileID: 0}
+--- !u!61 &1315913423
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315913418}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!4 &1332426555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5772767625662395980, guid: b936063a72367e04eb4befd611dc67bd, type: 3}
@@ -2724,6 +2809,7 @@ MonoBehaviour:
   lottoNumberText: {fileID: 1140048111}
   lottoNumberPanel: {fileID: 886690430}
   lottoNumberUI: {fileID: 874814259}
+  PaC: {fileID: 1845150493}
   Tv: {fileID: 812816252}
   ballSequenceStage: 0
   Hint: {fileID: 190442640}
@@ -2994,6 +3080,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1672219397}
   - component: {fileID: 1672219400}
+  - component: {fileID: 1672219401}
   - component: {fileID: 1672219399}
   - component: {fileID: 1672219398}
   m_Layer: 5
@@ -3117,6 +3204,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672219396}
   m_CullTransparentMesh: 1
+--- !u!114 &1672219401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672219396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a350bc0c83d66484584c6d31de0eb649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
+  hoverSound: {fileID: 8300000, guid: 967d69b954f0748ae82e8ad13e69b142, type: 3}
+  clickSound: {fileID: 8300000, guid: 846fefe8e3ab34279b3e9d833cf19a0d, type: 3}
 --- !u!4 &1689960669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5772767625662395980, guid: b936063a72367e04eb4befd611dc67bd, type: 3}
@@ -4099,7 +4200,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   musicSource: {fileID: 1944693651}
   sfxSource: {fileID: 1944693650}
-  defaultMusicClip: {fileID: 0}
+  defaultMusicClip: {fileID: 8300000, guid: 5eda689222aa5464c8d292a3de758534, type: 3}
+  numberChangeClip1: {fileID: 8300000, guid: f790808e8b07144ee92194b154a9614c, type: 3}
+  numberChangeClip2: {fileID: 8300000, guid: dc9372edca3c343ad8fd3504bb44e6f5, type: 3}
+  numberChangeClipSick: {fileID: 8300000, guid: 416f8c78959d94035b6ec68186a4193e, type: 3}
+  knockDoorClip1: {fileID: 8300000, guid: ccaa10887c9e14583929c362080d48ab, type: 3}
+  knockDoorClip2: {fileID: 8300000, guid: 9348194075b67412c9e06bb3959db9c7, type: 3}
 --- !u!4 &1944693653
 Transform:
   m_ObjectHideFlags: 0
@@ -4216,6 +4322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973705454}
   - component: {fileID: 1973705457}
+  - component: {fileID: 1973705458}
   - component: {fileID: 1973705456}
   - component: {fileID: 1973705455}
   m_Layer: 5
@@ -4339,6 +4446,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973705453}
   m_CullTransparentMesh: 1
+--- !u!114 &1973705458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973705453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a350bc0c83d66484584c6d31de0eb649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonSFX
+  hoverSound: {fileID: 8300000, guid: 967d69b954f0748ae82e8ad13e69b142, type: 3}
+  clickSound: {fileID: 8300000, guid: 846fefe8e3ab34279b3e9d833cf19a0d, type: 3}
 --- !u!1 &1994854230
 GameObject:
   m_ObjectHideFlags: 0

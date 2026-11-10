@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject lottoNumberUI;
     private List<GameObject> listLottoNumberUI;
 
+    [Header("Gameplay Objects")]
+    [SerializeField] private PointAndClick PaC;//PointAndClick
     [SerializeField] private GameObject Tv;
     private TV TvScript;
 
@@ -42,6 +44,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ballSequence = 0;
+
+        AudioManager.Instance.PlayDefaultMusic();
 
         if (Tv != null)
         {
@@ -83,6 +87,17 @@ public class GameManager : MonoBehaviour
         listLottoNumberUI[ballSequence].SetActive(true);
         ballSequence++;
         TvScript.ResetStage();
+        EnablePaCInteract();
+    }
+
+    public void EnablePaCInteract()
+    {
+        PaC.canInteract = true;
+    }
+
+    public void DisablePaCInteract()
+    {
+        PaC.canInteract = false;
     }
 
     // Should the GameManager be responsible for showing hints? Maybe it should be the UIManager's responsibility. But for now, let's keep it here.

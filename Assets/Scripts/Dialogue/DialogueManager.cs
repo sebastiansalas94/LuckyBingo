@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
 {
     private const string SPEAKER_TAG = "SPEAKER";
     private const string AUDIO_TAG = "AUDIO";
+    private const string KNOCK_DOOR_TAG = "KNOCK_DOOR";
 
     [HideInInspector] public static DialogueManager Instance { get; private set; }
     [HideInInspector] public bool dialogueIsPlaying { get; private set; }
@@ -194,6 +195,14 @@ public class DialogueManager : MonoBehaviour
         currentStory.BindExternalFunction("nextSequence", () => {
             GameManager.Instance.GetComponent<GameManager>().showBingoBallUI();
         });
+
+        currentStory.BindExternalFunction("playRandomClipBingoBall", () => {
+            AudioManager.Instance.GetComponent<AudioManager>().PlayRandomClipBingoBall();
+        });
+
+        currentStory.BindExternalFunction("playClipBingoBallSick", () => {
+            AudioManager.Instance.GetComponent<AudioManager>().PlayClipBingoBallSick();
+        });
     }
 
     private void HandleTags(List<string> currentTags)
@@ -207,7 +216,7 @@ public class DialogueManager : MonoBehaviour
                 continue;
             }
             string tagKey = splitTag[0].Trim();
-            string tagValue = splitTag[1].Trim().ToLower();
+            string tagValue = splitTag[1].Trim();//.ToLower();
 
             switch (tagKey)
             {
@@ -215,6 +224,8 @@ public class DialogueManager : MonoBehaviour
                     displayNameText.text = splitTag[1].Trim();
                     break;
                 case AUDIO_TAG:
+                    if(tagValue == KNOCK_DOOR_TAG)
+                        AudioManager.Instance.GetComponent<AudioManager>().PlayRandomClipKnockDoor();
                     break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: " + tag);

@@ -1,5 +1,6 @@
 EXTERNAL nextSequence()
 
-This is a test... #SPEAKER: ???
+This is a test... #SPEAKER:???
 ~nextSequence()
+-> DONE
 -> END

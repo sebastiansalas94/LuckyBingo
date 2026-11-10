@@ -6,18 +6,19 @@ public class PointAndClick : MonoBehaviour
 {
     [SerializeField] private ControlHint hint;
 
+    public bool canInteract { get; set; }
+
     private Camera camera;
     private IInteractable hovered;
 
     private void Awake()
     {
         camera = GetComponent<Camera>();
+        canInteract = true;
     }
 
     void Update()
     {
-        //if (!InputManager.Instance.GetInteractPressed()) return;
-
         Vector2 worldPos = camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Collider2D hit = Physics2D.OverlapPoint(worldPos);
 
@@ -35,8 +36,7 @@ public class PointAndClick : MonoBehaviour
                 hint.Hide();
         }
 
-         if(hovered != null && InputManager.Instance.GetInteractPressed())
+        if (canInteract && hovered != null && InputManager.Instance.GetInteractPressed())
             hovered.Interact();
-
     }
 }

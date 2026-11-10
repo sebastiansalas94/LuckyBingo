@@ -60,6 +60,7 @@ public class TV : MonoBehaviour, IInteractable
         ballSpinner.GetComponent<BallAnimation>().StopBallAnimation();
         stage = 2;
 
+        GameManager.Instance.DisablePaCInteract();
         dt.StartDialogue(GameManager.Instance.ballSequence);
     }
 

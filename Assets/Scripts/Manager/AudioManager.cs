@@ -9,8 +9,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicSource;
     [SerializeField] private AudioSource sfxSource;
 
-    [Header("Audio Sources")]
+    [Header("Default Music")]
     [SerializeField] private AudioClip defaultMusicClip;
+
+    [Header("Default SFX")]
+    [SerializeField] private AudioClip numberChangeClip1;
+    [SerializeField] private AudioClip numberChangeClip2;
+    [SerializeField] private AudioClip numberChangeClipSick;
+    [SerializeField] private AudioClip knockDoorClip1;
+    [SerializeField] private AudioClip knockDoorClip2;
 
     private void Awake()
     {
@@ -71,5 +78,22 @@ public class AudioManager : MonoBehaviour
 
         sfxSource.clip = chosen;
         sfxSource.Play();
+    }
+
+
+    // Functions to call specific sounds from anywhere.
+    public void PlayRandomClipBingoBall()
+    {
+        PlayRandomClip(numberChangeClip1, numberChangeClip2);
+    }
+
+    public void PlayClipBingoBallSick()
+    {
+        PlaySFX(numberChangeClipSick);
+    }
+
+    public void PlayRandomClipKnockDoor()
+    {
+        PlayRandomClip(knockDoorClip1, knockDoorClip2);
     }
 }
