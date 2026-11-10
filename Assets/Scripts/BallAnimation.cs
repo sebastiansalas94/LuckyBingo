@@ -46,5 +46,6 @@ public class BallAnimation : MonoBehaviour
         isSpinning = false;
         Transform picked = balls[Random.Range(0, balls.Count)];
         picked.localScale *= 1.5f;
+        GameManager.Instance.SetBingoBallPicked(picked.gameObject.GetComponent<BingoBall>().GetNumber());
     }
 }

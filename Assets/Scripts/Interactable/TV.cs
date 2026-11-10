@@ -45,8 +45,6 @@ public class TV : MonoBehaviour, IInteractable
         {
             SelectBall();
         }
-
-        // 
     }
 
     private void RumbleBingoBall()
@@ -61,6 +59,17 @@ public class TV : MonoBehaviour, IInteractable
         AudioManager.Instance.StopSFX();
         ballSpinner.GetComponent<BallAnimation>().StopBallAnimation();
         stage = 2;
-        dt.StartDialogue();
+
+        dt.StartDialogue(GameManager.Instance.ballSequence);
+    }
+
+    public void SetStage(int newStage)
+    {
+        stage = newStage;
+    }
+
+    public void ResetStage()
+    {
+        stage = 0;
     }
 }

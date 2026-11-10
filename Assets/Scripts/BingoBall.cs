@@ -18,4 +18,9 @@ public class BingoBall : MonoBehaviour
     {
         
     }
+
+    public string GetNumber()
+    {
+        return numberText;
+    }
 }

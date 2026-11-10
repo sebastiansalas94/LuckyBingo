@@ -86,6 +86,8 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
 
+        BindActions();
+
         ContinueStory();
     }
 
@@ -189,9 +191,8 @@ public class DialogueManager : MonoBehaviour
 
     private void BindActions()
     {
-        currentStory.BindExternalFunction("changeMode", () => {
-            //string message = GameManager.Instance.GetComponent<GameManager>().DoSomething();
-            //return message;
+        currentStory.BindExternalFunction("nextSequence", () => {
+            GameManager.Instance.GetComponent<GameManager>().showBingoBallUI();
         });
     }
 
