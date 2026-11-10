@@ -1,3 +1,4 @@
+using Ink.Parsed;
 using UnityEngine;
 
 public class LottoPaper : MonoBehaviour, IInteractable
@@ -7,12 +8,14 @@ public class LottoPaper : MonoBehaviour, IInteractable
     [SerializeField] private Sprite hintIcon;
     [SerializeField] private string hintText = "Click to interact with the Lotto Paper.";
     private bool showHint = true;
+    [SerializeField] public int hoveredCount = 0;
     // From Interface IInteractable
     public Sprite HintIcon => hintIcon;
     public string HintText => hintText;
     public bool ShowHint => showHint;
+    int IInteractable.HoveredCount { get => hoveredCount; set => hoveredCount = value; }
 
-    [SerializeField] private int maxInteractionHintLimit = 2;
+    [SerializeField] private int maxHoveredHintLimit = 2;
     private int interactionCount = 0;
 
     [SerializeField] private AudioClip paperSFX;
@@ -24,6 +27,11 @@ public class LottoPaper : MonoBehaviour, IInteractable
     private void Update()
     {
         ShowHidePaper();
+
+        if (hoveredCount == maxHoveredHintLimit)
+        {
+            showHint = false;
+        }
     }
 
     private void Awake()
@@ -43,11 +51,6 @@ public class LottoPaper : MonoBehaviour, IInteractable
         dt.StartDialogue();
 
         interactionCount++;
-
-        if(interactionCount >= maxInteractionHintLimit)
-        {
-            showHint = false;
-        }
     }
 
     public void ShowHidePaper()

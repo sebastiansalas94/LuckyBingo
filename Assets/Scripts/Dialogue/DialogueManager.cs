@@ -80,6 +80,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        GameManager.Instance.DisablePaCInteract();
+
         currentStory = new Story(inkJSON.text);
         //currentSource = source;
 
@@ -98,6 +100,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueChoicesPanel.SetActive(false);
         dialogueText.text = "";
+        GameManager.Instance.EnablePaCInteract();
     }
 
     private void ContinueStory()

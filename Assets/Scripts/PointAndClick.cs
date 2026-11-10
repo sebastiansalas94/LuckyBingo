@@ -6,7 +6,7 @@ public class PointAndClick : MonoBehaviour
 {
     [SerializeField] private ControlHint hint;
 
-    public bool canInteract { get; set; }
+    [SerializeField] public bool canInteract;
 
     private Camera camera;
     private IInteractable hovered;
@@ -30,13 +30,21 @@ public class PointAndClick : MonoBehaviour
         {
             hovered = current;
 
-            if (hovered != null && hovered.ShowHint)
+            if (canInteract && hovered != null && hovered.ShowHint)
+            {
                 hint.Show(hovered.HintIcon, hovered.HintText);
+                hovered.HoveredCount++;
+            }
             else
                 hint.Hide();
         }
 
         if (canInteract && hovered != null && InputManager.Instance.GetInteractPressed())
             hovered.Interact();
+    }
+
+    public void SetCanInteract(bool newCanInteract)
+    {
+        canInteract = newCanInteract;
     }
 }

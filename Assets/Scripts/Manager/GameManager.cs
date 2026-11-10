@@ -87,17 +87,16 @@ public class GameManager : MonoBehaviour
         listLottoNumberUI[ballSequence].SetActive(true);
         ballSequence++;
         TvScript.ResetStage();
-        EnablePaCInteract();
     }
 
     public void EnablePaCInteract()
     {
-        PaC.canInteract = true;
+        PaC.SetCanInteract(true);//canInteract = true;
     }
 
     public void DisablePaCInteract()
     {
-        PaC.canInteract = false;
+        PaC.SetCanInteract(false);
     }
 
     // Should the GameManager be responsible for showing hints? Maybe it should be the UIManager's responsibility. But for now, let's keep it here.

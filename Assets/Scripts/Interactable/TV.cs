@@ -14,11 +14,13 @@ public class TV : MonoBehaviour, IInteractable
     [SerializeField] private Sprite hintIcon;
     [SerializeField] private string hintText = "Click to interact with the TV.";
     private bool showHint = true;
+    private int hoveredCount = 0;
 
     // From Interface IInteractable
     public Sprite HintIcon => hintIcon;
     public string HintText => hintText;
     public bool ShowHint => showHint;
+    int IInteractable.HoveredCount { get => hoveredCount; set => hoveredCount = value; }
 
     private int stage = 0;
 
@@ -60,7 +62,6 @@ public class TV : MonoBehaviour, IInteractable
         ballSpinner.GetComponent<BallAnimation>().StopBallAnimation();
         stage = 2;
 
-        GameManager.Instance.DisablePaCInteract();
         dt.StartDialogue(GameManager.Instance.ballSequence);
     }
 
