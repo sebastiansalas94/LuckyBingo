@@ -662,8 +662,6 @@ MonoBehaviour:
   - {fileID: 1332426555}
   radius: 1
   speed: 180
-  numberChangeSFX1: {fileID: 8300000, guid: f790808e8b07144ee92194b154a9614c, type: 3}
-  numberChangeSFX2: {fileID: 8300000, guid: dc9372edca3c343ad8fd3504bb44e6f5, type: 3}
 --- !u!4 &411854105
 Transform:
   m_ObjectHideFlags: 0
@@ -2537,7 +2535,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LottoPaper
   hintIcon: {fileID: 21300000, guid: 522dcca0b84ed3041a1bc5522e21f3f2, type: 3}
   hintText: Press M key to show or hide the Lotto Paper.
-  maxInteractionHintLimit: 2
+  hoveredCount: 0
+  maxHoveredHintLimit: 2
   paperSFX: {fileID: 8300000, guid: 711b24328a2ad43a489b962d67463564, type: 3}
 --- !u!114 &1315913422
 MonoBehaviour:
@@ -3740,6 +3739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PointAndClick
   hint: {fileID: 190442640}
+  canInteract: 0
 --- !u!1 &1872860112
 GameObject:
   m_ObjectHideFlags: 0
@@ -3985,6 +3985,7 @@ GameObject:
   - component: {fileID: 1944693652}
   - component: {fileID: 1944693651}
   - component: {fileID: 1944693650}
+  - component: {fileID: 1944693654}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -4200,7 +4201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   musicSource: {fileID: 1944693651}
   sfxSource: {fileID: 1944693650}
-  defaultMusicClip: {fileID: 8300000, guid: 5eda689222aa5464c8d292a3de758534, type: 3}
+  defaultMusicClip: {fileID: 0}
   numberChangeClip1: {fileID: 8300000, guid: f790808e8b07144ee92194b154a9614c, type: 3}
   numberChangeClip2: {fileID: 8300000, guid: dc9372edca3c343ad8fd3504bb44e6f5, type: 3}
   numberChangeClipSick: {fileID: 8300000, guid: 416f8c78959d94035b6ec68186a4193e, type: 3}
@@ -4221,6 +4222,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1944693654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944693649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ecb953b5451409da59db96d223dfc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FMODMusic
+  mainSequence:
+    Guid:
+      Data1: 659231831
+      Data2: 1090981364
+      Data3: 1258300860
+      Data4: -1065261319
+    Path: event:/Main Sequence
 --- !u!1 &1954255223
 GameObject:
   m_ObjectHideFlags: 0
