@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject Tv;
     private TV TvScript;
 
+    [SerializeField] private SpriteRenderer backgroundImageReference;
+    [SerializeField] private Sprite tvScreen;
     public int ballSequence { get; private set; }
     public int ballSequenceStage = 0;
     private string ballPicked = "";
@@ -108,5 +110,11 @@ public class GameManager : MonoBehaviour
     public void HideHint(Sprite hintIcon, string hintText)
     {
         Hint.Hide();
+    }
+
+    public void ResetBackground()
+    {
+        if(backgroundImageReference != null)
+            backgroundImageReference.sprite = tvScreen;
     }
 }

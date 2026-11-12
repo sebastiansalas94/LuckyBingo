@@ -30,13 +30,18 @@ public class PointAndClick : MonoBehaviour
         {
             hovered = current;
 
-            if (canInteract && hovered != null && hovered.ShowHint)
+            if (canInteract && hovered != null)
             {
-                hint.Show(hovered.HintIcon, hovered.HintText);
+                if (hovered.ShowHint)
+                    hint.Show(hovered.HintIcon, hovered.HintText);
                 hovered.HoveredCount++;
+                hovered.ChangeSprite(true);
             }
             else
+            {
                 hint.Hide();
+                GameManager.Instance.ResetBackground();
+            }
         }
 
         if (canInteract && hovered != null && InputManager.Instance.GetInteractPressed())

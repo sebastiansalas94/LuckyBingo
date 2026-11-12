@@ -15,6 +15,11 @@ public class LottoPaper : MonoBehaviour, IInteractable
     public bool ShowHint => showHint;
     int IInteractable.HoveredCount { get => hoveredCount; set => hoveredCount = value; }
 
+    [SerializeField] private SpriteRenderer backgroundImageReference;
+    [SerializeField] private Sprite lottoPaperGlow;
+
+    [SerializeField] private GameObject closeUpBackgroundReference;
+
     [SerializeField] private int maxHoveredHintLimit = 2;
     private int interactionCount = 0;
 
@@ -24,20 +29,14 @@ public class LottoPaper : MonoBehaviour, IInteractable
     Transform[] allChildren;
     private bool showChilds = true;
 
-    private void Update()
-    {
-        ShowHidePaper();
 
-        if (hoveredCount == maxHoveredHintLimit)
-        {
-            showHint = false;
-        }
-    }
 
     private void Awake()
     {
         dt = GetComponent<DialogueTrigger>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        closeUpBackgroundReference.SetActive(false);
     }
 
     private void Start()
@@ -45,32 +44,30 @@ public class LottoPaper : MonoBehaviour, IInteractable
         allChildren = GetComponentsInChildren<Transform>();
     }
 
-    public void Interact()
+    private void Update()
     {
-        Debug.Log("Lotto Paper clicked");
-        dt.StartDialogue();
-
-        interactionCount++;
-    }
-
-    public void ShowHidePaper()
-    {
-        if (InputManager.Instance.GetPaperPressed())
+        if (hoveredCount == maxHoveredHintLimit)
         {
-            spriteRenderer.enabled = !spriteRenderer.enabled;
-            showChilds = !showChilds;
-            
-            foreach (Transform child in allChildren)
-            {
-                if (child != transform)
-                {
-                    child.gameObject.SetActive(showChilds);
-                }
-            }
-
-            AudioManager.Instance.PlaySFX(paperSFX);
+            showHint = false;
         }
     }
 
+    public void Interact()
+    {
+        Debug.Log("Lotto Paper clicked");
+        //dt.StartDialogue();
 
+        ViewManager.Instance.DisableFrontRoomView();
+        closeUpBackgroundReference.SetActive(true);
+        AudioManager.Instance.PlaySFX(paperSFX);
+        interactionCount++;
+    }
+
+    public void ChangeSprite(bool hover)
+    {
+        if (hover)
+        {
+            backgroundImageReference.sprite = lottoPaperGlow;
+        }
+    }
 }

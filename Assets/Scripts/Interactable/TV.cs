@@ -11,6 +11,9 @@ public class TV : MonoBehaviour, IInteractable
     [SerializeField] GameObject ballSpinner;
     private BallAnimation ballAnimation;
 
+    [SerializeField] private SpriteRenderer backgroundImageReference;
+    [SerializeField] private Sprite tvScreenGlow;
+
     [SerializeField] private Sprite hintIcon;
     [SerializeField] private string hintText = "Click to interact with the TV.";
     private bool showHint = true;
@@ -22,6 +25,7 @@ public class TV : MonoBehaviour, IInteractable
     public bool ShowHint => showHint;
     int IInteractable.HoveredCount { get => hoveredCount; set => hoveredCount = value; }
 
+    [SerializeField] private int maxHoveredHintLimit = 2;
     private int stage = 0;
 
     private void Awake()
@@ -31,6 +35,13 @@ public class TV : MonoBehaviour, IInteractable
         if(ballSpinner != null)
         {
             ballAnimation = GetComponent<BallAnimation>();
+        }
+    }
+    private void Update()
+    {
+        if (hoveredCount == maxHoveredHintLimit)
+        {
+            showHint = false;
         }
     }
 
@@ -73,5 +84,13 @@ public class TV : MonoBehaviour, IInteractable
     public void ResetStage()
     {
         stage = 0;
+    }
+
+    public void ChangeSprite(bool hover)
+    {
+        if (hover)
+        {
+            backgroundImageReference.sprite = tvScreenGlow;
+        }
     }
 }

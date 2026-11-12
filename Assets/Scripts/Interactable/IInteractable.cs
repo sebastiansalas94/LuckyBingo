@@ -7,4 +7,6 @@ public interface IInteractable
     bool ShowHint { get; }
     int HoveredCount { get; set; }
     void Interact();
+
+    void ChangeSprite(bool isHovered);
 }
