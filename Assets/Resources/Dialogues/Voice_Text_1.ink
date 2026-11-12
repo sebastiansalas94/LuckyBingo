@@ -9,7 +9,7 @@ I'm going crazy... #SPEAKER: Steve
 Play the game, Stephen. Unimaginable riches await you. #SPEAKER: ???
 Shut UP! #SPEAKER: Steve
 (heaving breaths) #SPEAKER: Steve
-...
+... #SPEAKER: Steve
     +[Keep playing.]
         Game should start any minute.
         ~nextSequence()
