@@ -76,3 +76,7 @@ crashlytics-build.properties
 
 # macOS Finder metafiles
 .DS_Store
+
+# FMOD editor cache (rebuilds automatically from banks)
+/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+/Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset.meta
