@@ -1,6 +1,3 @@
-using System;
-using Unity.Burst.CompilerServices;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class TV : MonoBehaviour, IInteractable
