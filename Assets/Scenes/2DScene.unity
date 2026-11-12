@@ -1747,7 +1747,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692901724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd66f57e7b851ac498bb2f5f573dd041, type: 3}
   m_Name: 
@@ -1766,17 +1766,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 692901724}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d186bf2a0ec7b7c44980ba84345a89cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
   inkJson: {fileID: 4900000, guid: eb0520a152d6f7f46949d6f3c1b46f3a, type: 3}
-  inkJsonSequence1: {fileID: 0}
-  inkJsonSequence2: {fileID: 0}
-  inkJsonSequence3: {fileID: 0}
-  inkJsonSequence4: {fileID: 0}
-  inkJsonSequence5: {fileID: 0}
+  inkJsonSequence1: {fileID: 4900000, guid: c00ca22ce65c019429f32edc48512874, type: 3}
+  inkJsonSequence2: {fileID: 4900000, guid: db7b4ddf3235ba245baf744c26622096, type: 3}
+  inkJsonSequence3: {fileID: 4900000, guid: 39caa3498487c9f44ab4be35250bacb7, type: 3}
+  inkJsonSequence4: {fileID: 4900000, guid: 0465dd077148fd5479748758ef39dfd0, type: 3}
+  inkJsonSequence5: {fileID: 4900000, guid: 851946e93e4b06b46a7d3a2c8ac35a8a, type: 3}
 --- !u!222 &692901729
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2202,8 +2202,8 @@ MonoBehaviour:
   inkJsonSequence1: {fileID: 4900000, guid: c00ca22ce65c019429f32edc48512874, type: 3}
   inkJsonSequence2: {fileID: 4900000, guid: db7b4ddf3235ba245baf744c26622096, type: 3}
   inkJsonSequence3: {fileID: 4900000, guid: 39caa3498487c9f44ab4be35250bacb7, type: 3}
-  inkJsonSequence4: {fileID: 4900000, guid: db7b4ddf3235ba245baf744c26622096, type: 3}
-  inkJsonSequence5: {fileID: 4900000, guid: 39caa3498487c9f44ab4be35250bacb7, type: 3}
+  inkJsonSequence4: {fileID: 4900000, guid: 0465dd077148fd5479748758ef39dfd0, type: 3}
+  inkJsonSequence5: {fileID: 4900000, guid: 851946e93e4b06b46a7d3a2c8ac35a8a, type: 3}
 --- !u!4 &864768375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5772767625662395980, guid: b936063a72367e04eb4befd611dc67bd, type: 3}
@@ -5137,6 +5137,7 @@ GameObject:
   - component: {fileID: 1944693652}
   - component: {fileID: 1944693651}
   - component: {fileID: 1944693650}
+  - component: {fileID: 1944693654}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -5373,6 +5374,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1944693654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944693649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ecb953b5451409da59db96d223dfc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FMODMusic
+  mainSequence:
+    Guid:
+      Data1: 659231831
+      Data2: 1090981364
+      Data3: 1258300860
+      Data4: -1065261319
+    Path: event:/Main Sequence
 --- !u!1 &1954255223
 GameObject:
   m_ObjectHideFlags: 0
