@@ -61,6 +61,7 @@ public class TV : MonoBehaviour, IInteractable
     {
         ballSpinner.GetComponent<BallAnimation>().StartBallAnimation();
         AudioManager.Instance.PlaySFX(bingoBallsRumbling);
+        FMODMusic.SetGlobalLabel("TV_on", "True");
         stage = 1;
     }
 
