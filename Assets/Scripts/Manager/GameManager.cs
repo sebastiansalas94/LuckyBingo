@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         ballSequence = 0;
 
-        AudioManager.Instance.PlayDefaultMusic();
+        //AudioManager.Instance.PlayDefaultMusic();
 
         if (Tv != null)
         {
