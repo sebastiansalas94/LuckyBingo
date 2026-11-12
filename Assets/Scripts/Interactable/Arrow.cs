@@ -22,7 +22,8 @@ public class Arrow : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        AudioManager.Instance.PlaySFX(clipSFX);
+        if(clipSFX != null)
+            AudioManager.Instance.PlaySFX(clipSFX);
         ViewManager.Instance.EnableFrontRoomView();
         spriteRenderer.sprite = arrowDefaultSprite;
     }
