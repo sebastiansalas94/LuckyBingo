@@ -199,6 +199,14 @@ public class DialogueManager : MonoBehaviour
             GameManager.Instance.GetComponent<GameManager>().showBingoBallUI();
         });
 
+        currentStory.BindExternalFunction("awayFromTV", () => {
+            ViewManager.Instance.GetComponent<ViewManager>().GoToFrontRoomView();
+        });
+
+        currentStory.BindExternalFunction("selectBall", () => {
+            GameManager.Instance.GetComponent<GameManager>().SelectBall();
+        });
+
         currentStory.BindExternalFunction("playRandomClipBingoBall", () => {
             AudioManager.Instance.GetComponent<AudioManager>().PlayRandomClipBingoBall();
         });

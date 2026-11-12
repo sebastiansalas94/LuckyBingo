@@ -1,4 +1,8 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class TV : MonoBehaviour, IInteractable
 {
@@ -10,6 +14,7 @@ public class TV : MonoBehaviour, IInteractable
 
     [SerializeField] private SpriteRenderer backgroundImageReference;
     [SerializeField] private Sprite tvScreenGlow;
+    [SerializeField] private Sprite tvScreenDefault;
 
     [SerializeField] private Sprite hintIcon;
     [SerializeField] private string hintText = "Click to interact with the TV.";
@@ -25,14 +30,26 @@ public class TV : MonoBehaviour, IInteractable
     [SerializeField] private int maxHoveredHintLimit = 1;
     private int stage = 0;
 
+    private SpriteRenderer parentSR;
+    [SerializeField] private bool isSpinning = false;
+
+    [SerializeField] private Sprite[] bingoSpinFrames;
+    [SerializeField] private float fps = 8f;
+
+    [SerializeField] private Sprite[] bingoBallOutFrames;
+    private Coroutine routine;
+    [SerializeField] private float frameTime = 0.25f;
+
     private void Awake()
     {
         dt = GetComponent<DialogueTrigger>();
+        //parentSR = transform.parent.GetComponent<SpriteRenderer>();
+        //if (ballSpinner != null)
+        //{
+        //    ballAnimation = GetComponent<BallAnimation>();
+        //}
 
-        if(ballSpinner != null)
-        {
-            ballAnimation = GetComponent<BallAnimation>();
-        }
+        backgroundImageReference.sprite = tvScreenDefault;
     }
     private void Update()
     {
@@ -40,6 +57,17 @@ public class TV : MonoBehaviour, IInteractable
         {
             showHint = false;
         }
+
+        if(isSpinning)
+        {
+            int index = (int)(Time.time * fps) % bingoSpinFrames.Length;
+            backgroundImageReference.sprite = bingoSpinFrames[index];
+        }
+
+        //if (isSelected)
+        //{
+
+        //}
     }
 
     public void Interact()
@@ -59,19 +87,23 @@ public class TV : MonoBehaviour, IInteractable
 
     private void RumbleBingoBall()
     {
-        ballSpinner.GetComponent<BallAnimation>().StartBallAnimation();
+        //ballSpinner.GetComponent<BallAnimation>().StartBallAnimation();
+        dt.StartDialogue(GameManager.Instance.ballSequence);
+        isSpinning = true;
         AudioManager.Instance.PlaySFX(bingoBallsRumbling);
         FMODMusic.SetGlobalLabel("TV_on", "True");
         stage = 1;
     }
 
-    private void SelectBall()
+    public void SelectBall()
     {
+        isSpinning = false;
+        Play(false);
         AudioManager.Instance.StopSFX();
-        ballSpinner.GetComponent<BallAnimation>().StopBallAnimation();
+        //ballSpinner.GetComponent<BallAnimation>().StopBallAnimation();
         stage = 2;
 
-        dt.StartDialogue(GameManager.Instance.ballSequence);
+
     }
 
     public void SetStage(int newStage)
@@ -88,7 +120,35 @@ public class TV : MonoBehaviour, IInteractable
     {
         if (hover)
         {
-            backgroundImageReference.sprite = tvScreenGlow;
+            //backgroundImageReference.sprite = tvScreenGlow;
         }
+    }
+
+    public void Play(bool loop)
+    {
+        Stop();
+        routine = StartCoroutine(Animate(loop));
+    }
+
+    public void Stop()
+    {
+        if (routine != null)
+            StopCoroutine(routine);
+        routine = null;
+    }
+
+    private IEnumerator Animate(bool loop)
+    {
+        do
+        {
+            foreach (Sprite frame in bingoBallOutFrames)
+            {
+                backgroundImageReference.sprite = frame;
+                yield return new WaitForSeconds(frameTime);
+            }
+        }
+        while (loop);
+
+        routine = null;
     }
 }

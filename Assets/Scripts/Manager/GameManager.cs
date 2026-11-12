@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //3, 7, 10, 15, 42
     [HideInInspector] public static GameManager Instance { get; private set; }
     [HideInInspector] List<int> lottoNumbers;
     [SerializeField] private TextMeshPro lottoNumberText;
@@ -75,15 +76,28 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void SetBingoBallPicked(string numberText)
+    public void SetBingoBallPicked()
     {
-        ballPicked = numberText;
+        // Magic Numbers, yay!
+        if (ballSequence == 0)
+            ballPicked = "03";
+        else if (ballSequence == 1)
+            ballPicked = "07";
+        else if (ballSequence == 2)
+            ballPicked = "10";
+        else if (ballSequence == 3)
+            ballPicked = "15";
+        else if (ballSequence == 4)
+            ballPicked = "41";
+        else
+            ballPicked = "";
     }
 
     public void showBingoBallUI()
     {
         if (ballSequence == 5) return;
 
+        SetBingoBallPicked();
         lottoNumberPanel.SetActive(true);
         listLottoNumberUI[ballSequence].GetComponent<BingoBallUI>().numberText = ballPicked;
         listLottoNumberUI[ballSequence].SetActive(true);
@@ -116,5 +130,10 @@ public class GameManager : MonoBehaviour
     {
         if(backgroundImageReference != null)
             backgroundImageReference.sprite = tvScreen;
+    }
+
+    public void SelectBall()
+    {
+        TvScript.SelectBall();
     }
 }

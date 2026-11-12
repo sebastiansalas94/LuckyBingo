@@ -50,4 +50,19 @@ public class ViewManager : MonoBehaviour
         if (TvCloseUp != null)
             TvCloseUp.SetActive(false);
     }
+
+    public void DisableCloseUps()
+    {
+        if(LottoPaperCloseUp != null) { }
+            LottoPaperCloseUp.SetActive(false);
+
+        if (TvCloseUp != null)
+            TvCloseUp.SetActive(false);
+    }
+
+    public void GoToFrontRoomView()
+    {
+        DisableCloseUps();
+        EnableFrontRoomView();
+    }
 }
