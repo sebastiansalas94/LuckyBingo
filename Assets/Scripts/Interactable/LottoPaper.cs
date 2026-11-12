@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class LottoPaper : MonoBehaviour, IInteractable
 {
-    private DialogueTrigger dt;
-
     [SerializeField] private Sprite hintIcon;
     [SerializeField] private string hintText = "Click to interact with the Lotto Paper.";
     private bool showHint = true;
@@ -25,23 +23,13 @@ public class LottoPaper : MonoBehaviour, IInteractable
 
     [SerializeField] private AudioClip paperSFX;
 
-    private SpriteRenderer spriteRenderer;
-    Transform[] allChildren;
-    private bool showChilds = true;
-
-
-
     private void Awake()
     {
-        dt = GetComponent<DialogueTrigger>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
         closeUpBackgroundReference.SetActive(false);
     }
 
     private void Start()
     {
-        allChildren = GetComponentsInChildren<Transform>();
     }
 
     private void Update()
@@ -55,7 +43,6 @@ public class LottoPaper : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("Lotto Paper clicked");
-        //dt.StartDialogue();
 
         ViewManager.Instance.DisableFrontRoomView();
         closeUpBackgroundReference.SetActive(true);

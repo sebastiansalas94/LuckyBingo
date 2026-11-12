@@ -22,7 +22,7 @@ public class TV : MonoBehaviour, IInteractable
     public bool ShowHint => showHint;
     int IInteractable.HoveredCount { get => hoveredCount; set => hoveredCount = value; }
 
-    [SerializeField] private int maxHoveredHintLimit = 2;
+    [SerializeField] private int maxHoveredHintLimit = 1;
     private int stage = 0;
 
     private void Awake()
