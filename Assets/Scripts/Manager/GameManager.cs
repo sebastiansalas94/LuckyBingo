@@ -128,8 +128,9 @@ public class GameManager : MonoBehaviour
 
     public void ResetBackground()
     {
-        if(backgroundImageReference != null)
-            backgroundImageReference.sprite = tvScreen;
+        ViewManager.Instance.WhichRoom();
+        //if(backgroundImageReference != null)
+        //    backgroundImageReference.sprite = tvScreen;
     }
 
     public void SelectBall()

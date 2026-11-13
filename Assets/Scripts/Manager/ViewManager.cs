@@ -2,18 +2,29 @@ using UnityEngine;
 
 public class ViewManager : MonoBehaviour
 {
+    public enum Rooms
+    {
+        Center,
+        Left,
+        Right
+    }
+    private Rooms CurrentRoom = Rooms.Center;
+
     [Header("Front Room View")]
     [SerializeField] private GameObject FrontRoomView;
     [SerializeField] private GameObject FrontRoomParent;
+    [SerializeField] private Sprite FrontRoomBackground;
     [SerializeField] private GameObject Tv;
     [SerializeField] private GameObject LottoPaper;
     [SerializeField] private GameObject Chips;
 
     [Header("Left Room View")]
     [SerializeField] private GameObject LeftRoomView;
+    [SerializeField] private Sprite LeftRoomViewBackground;
 
     [Header("Right Room View")]
     [SerializeField] private GameObject RightRoomView;
+    [SerializeField] private Sprite RightRoomViewBackground;
 
     [Header("Close Up View")]
     [SerializeField] private GameObject LottoPaperCloseUp;
@@ -99,19 +110,38 @@ public class ViewManager : MonoBehaviour
 
     public void GoToFrontRoomView()
     {
+        CurrentRoom = Rooms.Center;
         DisableCloseUps();
         EnableFrontRoomView();
     }
 
     public void GoToLeftRoomView()
     {
+        CurrentRoom = Rooms.Left;
         DisableFrontRoomView();
         EnableLeftRoomView();
     }
 
     public void GoToRightRoomView()
     {
+        CurrentRoom = Rooms.Right;
         DisableFrontRoomView();
         EnableRightRoomView();
+    }
+
+    public void WhichRoom()
+    {
+        switch (CurrentRoom)
+        {
+            case Rooms.Center:
+                FrontRoomView.GetComponent<SpriteRenderer>().sprite = FrontRoomBackground;
+                break;
+            case Rooms.Left:
+                LeftRoomView.GetComponent<SpriteRenderer>().sprite = LeftRoomViewBackground;
+                break;
+            case Rooms.Right:
+                RightRoomView.GetComponent<SpriteRenderer>().sprite = RightRoomViewBackground;
+                break;
+        }
     }
 }
