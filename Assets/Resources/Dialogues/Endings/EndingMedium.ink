@@ -1,5 +1,6 @@
 We had such high hopes for you, Stephen. But all you managed to win was a measly fifty dollars. #SPEAKER:
 Needless to say your landlord wasn't pleased.
-We hope you have a pleasant night sleeping under a bridge.
+Now, as you struggle to find a place to sleep, you wonder about the game...
+...and what could have been.
 Thank you for playing Lucky Bingo.
 GAME OVER
