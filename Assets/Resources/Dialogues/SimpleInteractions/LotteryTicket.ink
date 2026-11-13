@@ -1,0 +1,1 @@
+The paper still feels all tingly and weird. #SPEAKER:Steve

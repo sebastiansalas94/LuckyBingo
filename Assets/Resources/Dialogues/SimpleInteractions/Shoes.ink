@@ -1,0 +1,1 @@
+My old, trusty shoes. Always supporting me. #SPEAKER:Steve
