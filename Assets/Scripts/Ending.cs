@@ -15,16 +15,17 @@ public class Ending : MonoBehaviour
     public TextAsset inkJsonEnding3;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         dt = GetComponent<DialogueTrigger>();
-        RectTransform panel = dialoguePanel.GetComponent<RectTransform>();
-        panel.anchoredPosition += new Vector2(0f, -445f);
-        dialoguePanel.GetComponent<Image>().enabled = false;
     }
 
     public void StartEnding(int endingIndex)
     {
+        RectTransform panel = dialoguePanel.GetComponent<RectTransform>();
+        panel.anchoredPosition += new Vector2(0f, -445f);
+        dialoguePanel.GetComponent<Image>().enabled = false;
+        DialogueManager.Instance.ForceExitDialogueMode();
         if(endingIndex == 0)
         {
             dt.StartDialogue(inkJsonEnding1);

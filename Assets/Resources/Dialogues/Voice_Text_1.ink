@@ -1,7 +1,7 @@
 EXTERNAL nextSequence()
 EXTERNAL selectBall()
 EXTERNAL awayFromTV()
-
+EXTERNAL goToEndingWinBingo(endingNumber)
 
 Hello, Stephen. #SPEAKER: ???
 Gah!! What the FUCK? #SPEAKER: Steve
@@ -24,9 +24,9 @@ Shut UP! #SPEAKER: Steve
         ~awayFromTV()
         What the hell was that? #SPEAKER: Steve
         I must be going crazy. #SPEAKER: Steve
+        ~selectBall()
         ~nextSequence()
         Huh? I can't believe I got one right. #SPEAKER: Steve
         Maybe I can get more? #SPEAKER: Steve
         -> DONE
-
 -> END

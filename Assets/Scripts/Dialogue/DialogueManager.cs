@@ -97,6 +97,10 @@ public class DialogueManager : MonoBehaviour
 
         ContinueStory();
     }
+    public void ForceExitDialogueMode()
+    {
+        ExitDialogueMode();
+    }
 
     private void ExitDialogueMode()
     {
