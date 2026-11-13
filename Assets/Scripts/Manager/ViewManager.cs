@@ -29,6 +29,7 @@ public class ViewManager : MonoBehaviour
     [Header("Close Up View")]
     [SerializeField] private GameObject LottoPaperCloseUp;
     [SerializeField] private GameObject TvCloseUp;
+    [SerializeField] private GameObject WindowCloseUp;
 
     [HideInInspector] public static ViewManager Instance { get; private set; }
     private void Awake()
@@ -87,6 +88,12 @@ public class ViewManager : MonoBehaviour
             RightRoomView.SetActive(false);
     }
 
+    public void DisableRightRoom()
+    {
+        if (RightRoomView)
+            RightRoomView.SetActive(false);
+    }
+
     public void EnableLeftRoomView()
     {
         if (LeftRoomView)
@@ -106,6 +113,9 @@ public class ViewManager : MonoBehaviour
 
         if (TvCloseUp != null)
             TvCloseUp.SetActive(false);
+
+        if (WindowCloseUp != null)
+            WindowCloseUp.SetActive(false);
     }
 
     public void GoToFrontRoomView()
@@ -125,6 +135,7 @@ public class ViewManager : MonoBehaviour
     public void GoToRightRoomView()
     {
         CurrentRoom = Rooms.Right;
+        DisableCloseUps();
         DisableFrontRoomView();
         EnableRightRoomView();
     }
