@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         else if (ballSequence == 3)
             ballPicked = "15";
         else if (ballSequence == 4)
-            ballPicked = "41";
+            ballPicked = "42";
         else
             ballPicked = "";
     }

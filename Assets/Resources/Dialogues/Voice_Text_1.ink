@@ -2,22 +2,23 @@ EXTERNAL nextSequence()
 EXTERNAL selectBall()
 EXTERNAL awayFromTV()
 
+
 Hello, Stephen. #SPEAKER: ???
-#Gah!! What the FUCK? #SPEAKER: Steve
-#Who's there? #SPEAKER: Steve
-#Do you want to play the game? #SPEAKER: ???
-#Where is THAT coming from? #SPEAKER: Steve
-#I'm going crazy... #SPEAKER: Steve
-#Play the game, Stephen. Unimaginable riches await you. #SPEAKER: ???
-#Shut UP! #SPEAKER: Steve
-#(heaving breaths) #SPEAKER: Steve
+Gah!! What the FUCK? #SPEAKER: Steve
+Who's there? #SPEAKER: Steve
+Do you want to play the game? #SPEAKER: ???
+Where is THAT coming from? #SPEAKER: Steve
+I'm going crazy... #SPEAKER: Steve
+Play the game, Stephen. Unimaginable riches await you. #SPEAKER: ???
+Shut UP! #SPEAKER: Steve
+(heaving breaths) #SPEAKER: Steve
 ... #SPEAKER: Steve
     +[Keep playing.]
         Game should start any minute. #SPEAKER: Steve
         ~selectBall()
+        ~nextSequence()
         Hey! I got a match! #SPEAKER: Steve
         Maybe it's luck talking to me! #SPEAKER: Steve
-        ~nextSequence()
         -> DONE
     +[Stay away from the TV.]
         ~awayFromTV()

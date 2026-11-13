@@ -88,11 +88,11 @@ public class TV : MonoBehaviour, IInteractable
     private void RumbleBingoBall()
     {
         //ballSpinner.GetComponent<BallAnimation>().StartBallAnimation();
-        dt.StartDialogue(GameManager.Instance.ballSequence);
+        stage = 1;
         isSpinning = true;
         AudioManager.Instance.PlaySFX(bingoBallsRumbling);
         FMODMusic.SetGlobalLabel("TV_on", "True");
-        stage = 1;
+        dt.StartDialogue(GameManager.Instance.ballSequence);
     }
 
     public void SelectBall()

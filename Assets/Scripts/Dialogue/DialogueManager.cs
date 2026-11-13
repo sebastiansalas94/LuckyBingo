@@ -36,7 +36,11 @@ public class DialogueManager : MonoBehaviour
     private GameObject currentSource;
     private Coroutine displayLineCoroutine;
 
+    private int lineStartFrame;
     private int openedFrame;
+    private int closedFrame = -1;
+    public bool IsBlockingInput => dialogueIsPlaying || Time.frameCount == closedFrame;
+
 
 
     void Awake()
@@ -88,7 +92,7 @@ public class DialogueManager : MonoBehaviour
         openedFrame = Time.frameCount;
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
-
+        dialogueText.text = "";
         BindActions();
 
         ContinueStory();
@@ -97,34 +101,57 @@ public class DialogueManager : MonoBehaviour
     private void ExitDialogueMode()
     {
         dialogueIsPlaying = false;
+        closedFrame = Time.frameCount;
         dialoguePanel.SetActive(false);
         dialogueChoicesPanel.SetActive(false);
         dialogueText.text = "";
         GameManager.Instance.EnablePaCInteract();
     }
 
+    //private void ContinueStory()
+    //{
+    //    if (currentStory.canContinue)
+    //    {
+    //        HandleTags(currentStory.currentTags);
+    //        if (displayLineCoroutine != null)
+    //        {
+    //            StopCoroutine(displayLineCoroutine);
+    //        }
+
+    //        displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
+    //    }
+    //    else
+    //    {
+    //        ExitDialogueMode();
+    //    }
+    //}
+
     private void ContinueStory()
     {
-        if (currentStory.canContinue)
-        {
-            if (displayLineCoroutine != null)
-            {
-                StopCoroutine(displayLineCoroutine);
-            }
-
-            displayLineCoroutine = StartCoroutine(DisplayLine(currentStory.Continue()));
-
-            HandleTags(currentStory.currentTags);
-        }
-        else
+        if (!currentStory.canContinue)
         {
             ExitDialogueMode();
+            return;
         }
+
+        string line = currentStory.Continue();      // 1. load the line and its tags
+        HandleTags(currentStory.currentTags);       // 2. apply this line's tags
+
+        if (string.IsNullOrWhiteSpace(line))        // 3. skip empty lines
+        {
+            ContinueStory();
+            return;
+        }
+
+        if (displayLineCoroutine != null)           // 4. show it
+            StopCoroutine(displayLineCoroutine);
+
+        displayLineCoroutine = StartCoroutine(DisplayLine(line));
     }
 
     private IEnumerator DisplayLine(string line)
     {
-        openedFrame = Time.frameCount;
+        lineStartFrame = Time.frameCount;
 
         dialogueText.text = line;
         dialogueText.maxVisibleCharacters = 0;
@@ -135,19 +162,25 @@ public class DialogueManager : MonoBehaviour
         dialogueText.ForceMeshUpdate();
         int totalVisibleChars = dialogueText.textInfo.characterCount;
 
-        int visibleCount = 0;
-        while (visibleCount <= totalVisibleChars)
+        bool skipped = false;
+
+        while (!skipped && dialogueText.maxVisibleCharacters < totalVisibleChars)
         {
-            if (Time.frameCount > openedFrame
-                && InputManager.Instance.GetInteractPressed())
+            float timer = 0f;
+            while (timer < typingSpeed)
             {
-                dialogueText.maxVisibleCharacters = totalVisibleChars;
-                break;
+                if (Time.frameCount > lineStartFrame && InputManager.Instance.GetInteractPressed())
+                {
+                    lineStartFrame = Time.frameCount;
+                    skipped = true;
+                    break;
+                }
+
+                timer += Time.unscaledDeltaTime;
+                yield return null;
             }
 
-            dialogueText.maxVisibleCharacters = visibleCount;
-            visibleCount++;
-            yield return new WaitForSeconds(typingSpeed);
+            dialogueText.maxVisibleCharacters++;
         }
 
         dialogueText.maxVisibleCharacters = totalVisibleChars;
@@ -203,6 +236,10 @@ public class DialogueManager : MonoBehaviour
             ViewManager.Instance.GetComponent<ViewManager>().GoToFrontRoomView();
         });
 
+        currentStory.BindExternalFunction("goToWindow", () => {
+            ViewManager.Instance.GetComponent<ViewManager>().GoToWindow();
+        });
+
         currentStory.BindExternalFunction("selectBall", () => {
             GameManager.Instance.GetComponent<GameManager>().SelectBall();
         });
@@ -213,6 +250,10 @@ public class DialogueManager : MonoBehaviour
 
         currentStory.BindExternalFunction("playClipBingoBallSick", () => {
             AudioManager.Instance.GetComponent<AudioManager>().PlayClipBingoBallSick();
+        });
+
+        currentStory.BindExternalFunction("goToEndingWinBingo", (int endingNumber) => {
+            ViewManager.Instance.GetComponent<ViewManager>().GoToEnding(endingNumber);
         });
     }
 

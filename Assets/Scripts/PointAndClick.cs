@@ -46,7 +46,7 @@ public class PointAndClick : MonoBehaviour
             }
         }
 
-        if (canInteract && hovered != null && InputManager.Instance.GetInteractPressed())
+        if (canInteract && hovered != null && !DialogueManager.Instance.IsBlockingInput && InputManager.Instance.GetInteractPressed())
             hovered.Interact();
     }
 

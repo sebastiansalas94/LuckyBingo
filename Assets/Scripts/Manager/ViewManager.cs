@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ViewManager : MonoBehaviour
@@ -30,6 +31,9 @@ public class ViewManager : MonoBehaviour
     [SerializeField] private GameObject LottoPaperCloseUp;
     [SerializeField] private GameObject TvCloseUp;
     [SerializeField] private GameObject WindowCloseUp;
+
+    [Header("Ending View")]
+    [SerializeField] private GameObject EndingView;
 
     [HideInInspector] public static ViewManager Instance { get; private set; }
     private void Awake()
@@ -94,6 +98,12 @@ public class ViewManager : MonoBehaviour
             RightRoomView.SetActive(false);
     }
 
+    public void DisableLeftRoom()
+    {
+        if (LeftRoomView)
+            LeftRoomView.SetActive(false);
+    }
+
     public void EnableLeftRoomView()
     {
         if (LeftRoomView)
@@ -125,6 +135,21 @@ public class ViewManager : MonoBehaviour
         EnableFrontRoomView();
     }
 
+    public void GoToWindow()
+    {
+        StartCoroutine(SequenceToWindows());
+    }
+
+    private IEnumerator SequenceToWindows()
+    {
+        GoToFrontRoomView();
+
+        yield return new WaitForSeconds(1);
+
+        GoToRightRoomView();
+        yield break;
+    }
+
     public void GoToLeftRoomView()
     {
         CurrentRoom = Rooms.Left;
@@ -154,5 +179,16 @@ public class ViewManager : MonoBehaviour
                 RightRoomView.GetComponent<SpriteRenderer>().sprite = RightRoomViewBackground;
                 break;
         }
+    }
+
+    public void GoToEnding(int endingNumber)
+    {
+        DisableFrontRoomView();
+        DisableRightRoom();
+        DisableLeftRoom();
+        DisableCloseUps();
+
+        EndingView.SetActive(true);
+        EndingView.GetComponent<Ending>().StartEnding(endingNumber);
     }
 }

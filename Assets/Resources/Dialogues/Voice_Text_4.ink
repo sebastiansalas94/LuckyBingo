@@ -1,7 +1,20 @@
 EXTERNAL nextSequence()
+EXTERNAL selectBall()
+EXTERNAL awayFromTV()
+EXTERNAL goToEndingWinBingo(endingNumber)
 
-This is another test (3) #SPEAKER:??? #AUDIO:KNOCK_DOOR
-~nextSequence()
-Finish Test 3.
+Shit. That sounds bad. #SPEAKER:Steve #AUDIO:KNOCK_DOOR
+Maybe I should have a look. #SPEAKER:Steve
+Are you sure, Stephen? #SPEAKER:???
+~awayFromTV()
+But then I'll miss the rest of the game... #SPEAKER:???
+    +[Continue playing.]
+        ~selectBall()
+        ~nextSequence()
+        -> DONE
+    +[Investigate Noises]
+        I'll go check. #SPEAKER: Steve
+        ~goToEndingWinBingo(1)
+        -> DONE
 -> DONE
 -> END
