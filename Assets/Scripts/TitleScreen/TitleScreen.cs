@@ -1,3 +1,4 @@
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -9,44 +10,37 @@ public class TitleScreen : MonoBehaviour
 
     private int currentIndex = 0;
 
+    [SerializeField] private GameObject creditsPanel;
+    [SerializeField] private GameObject creditsButton;
+
+    [SerializeField] private GameObject mainMenuPanel;
+    [SerializeField] private GameObject mainMenuButtons;
+
     void Start()
     {
-        UpdateSelection();
-    }
-
-    void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
-        //{
-        //    currentIndex++;
-        //    if (currentIndex >= menuButtons.Length)
-        //        currentIndex = 0;
-
-        //    UpdateSelection();
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
-        //{
-        //    currentIndex--;
-        //    if (currentIndex < 0)
-        //        currentIndex = menuButtons.Length - 1;
-
-        //    UpdateSelection();
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    menuButtons[currentIndex].onClick.Invoke();
-        //}
-    }
-
-    void UpdateSelection()
-    {
-        //EventSystem.current.SetSelectedGameObject(menuButtons[currentIndex].gameObject);
+        LoadMainMenu();
     }
 
     public void LoadGameplayScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void LoadCredits()
+    {
+        mainMenuPanel.SetActive(false);
+        mainMenuButtons.SetActive(false);
+
+        creditsPanel.SetActive(true);
+        creditsButton.SetActive(true);
+    }
+
+    public void LoadMainMenu()
+    {
+        creditsPanel.SetActive(false);
+        creditsButton.SetActive(false);
+
+        mainMenuPanel.SetActive(true);
+        mainMenuButtons.SetActive(true);
     }
 }
