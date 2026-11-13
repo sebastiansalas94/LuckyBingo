@@ -410,6 +410,7 @@ GameObject:
   - component: {fileID: 77599117}
   - component: {fileID: 77599119}
   - component: {fileID: 77599118}
+  - component: {fileID: 77599120}
   m_Layer: 0
   m_Name: LeftSideRoom
   m_TagString: Untagged
@@ -508,6 +509,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &77599120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77599116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioGlobalParameterTrigger
+  CollisionTag: 
+  Parameter: View
+  TriggerEvent: 11
+  Value: 3
 --- !u!1001 &78941606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -863,6 +880,7 @@ GameObject:
   - component: {fileID: 246320358}
   - component: {fileID: 246320360}
   - component: {fileID: 246320359}
+  - component: {fileID: 246320361}
   m_Layer: 0
   m_Name: RightSideRoom
   m_TagString: Untagged
@@ -959,6 +977,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &246320361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246320357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioGlobalParameterTrigger
+  CollisionTag: 
+  Parameter: View
+  TriggerEvent: 11
+  Value: 1
 --- !u!1001 &347461668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1694,6 +1728,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434620513}
   m_CullTransparentMesh: 1
+--- !u!1 &483794788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 483794791}
+  - component: {fileID: 483794790}
+  - component: {fileID: 483794789}
+  m_Layer: 0
+  m_Name: FMODGameStartParameters
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &483794789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483794788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioGlobalParameterTrigger
+  CollisionTag: 
+  Parameter: GameStart
+  TriggerEvent: 1
+  Value: 1
+--- !u!114 &483794790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483794788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioGlobalParameterTrigger
+  CollisionTag: 
+  Parameter: Stage
+  TriggerEvent: 1
+  Value: 1
+--- !u!4 &483794791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 483794788}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &527337153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1978,6 +2077,7 @@ GameObject:
   - component: {fileID: 626801929}
   - component: {fileID: 626801928}
   - component: {fileID: 626801927}
+  - component: {fileID: 626801930}
   m_Layer: 0
   m_Name: TvCloseUp
   m_TagString: Untagged
@@ -2073,6 +2173,22 @@ RectTransform:
   m_AnchoredPosition: {x: -0.7092494, y: 0.30650553}
   m_SizeDelta: {x: 19.2, y: 10.8}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &626801930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626801923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioGlobalParameterTrigger
+  CollisionTag: 
+  Parameter: View
+  TriggerEvent: 11
+  Value: 4
 --- !u!1001 &663061718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2452,7 +2568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb927313ab8c5e945b6f10b8e86bcedb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TV
-  bingoBallsRumbling: {fileID: 8300000, guid: 71b7c2299d8f07e4fa866239155014c7, type: 3}
+  bingoBallsRumbling: {fileID: 8300000, guid: 16b1797865dba4ff8a3bdf8e6647f333, type: 3}
   ballSpinner: {fileID: 411854103}
   backgroundImageReference: {fileID: 626801928}
   tvScreenGlow: {fileID: 21300000, guid: 912cabd0eba0446c4a638955cf88bb77, type: 3}
@@ -2977,6 +3093,7 @@ GameObject:
   - component: {fileID: 1111164427}
   - component: {fileID: 1111164426}
   - component: {fileID: 1111164425}
+  - component: {fileID: 1111164430}
   m_Layer: 0
   m_Name: WindowCloseUp
   m_TagString: Untagged
@@ -3154,6 +3271,22 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1111164430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111164423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioGlobalParameterTrigger
+  CollisionTag: 
+  Parameter: View
+  TriggerEvent: 11
+  Value: 2
 --- !u!1001 &1118653583
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4936,6 +5069,7 @@ GameObject:
   - component: {fileID: 1598420114}
   - component: {fileID: 1598420115}
   - component: {fileID: 1598420116}
+  - component: {fileID: 1598420117}
   m_Layer: 0
   m_Name: FrontRoomBackground
   m_TagString: Untagged
@@ -5029,6 +5163,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1598420113}
   m_CullTransparentMesh: 1
+--- !u!114 &1598420117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598420113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e04e2572f9a940a47465f6f3c2f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioGlobalParameterTrigger
+  CollisionTag: 
+  Parameter: View
+  TriggerEvent: 11
+  Value: 0
 --- !u!1 &1672219396
 GameObject:
   m_ObjectHideFlags: 0
@@ -7197,6 +7347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6050291663428589193, guid: ba3800808fe858d46b974d28cfe2f2be, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6770064455279234427, guid: ba3800808fe858d46b974d28cfe2f2be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.8915
@@ -7321,3 +7475,4 @@ SceneRoots:
   - {fileID: 52842008}
   - {fileID: 1021708145}
   - {fileID: 395050604}
+  - {fileID: 483794791}

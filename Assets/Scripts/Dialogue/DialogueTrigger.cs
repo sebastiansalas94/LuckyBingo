@@ -43,23 +43,23 @@ public class DialogueTrigger : MonoBehaviour
         switch (sequenceNumber)
         {
             case 0:
-                AudioManager.Instance.GetComponent<AudioManager>().PlayRandomClipBingoBall();
+                //AudioManager.Instance.GetComponent<AudioManager>().PlayRandomClipBingoBall();
                 DialogueManager.Instance.EnterDialogueMode(inkJsonSequence1);
                 break;
             case 1:
-                AudioManager.Instance.GetComponent<AudioManager>().PlayRandomClipBingoBall();
+                //AudioManager.Instance.GetComponent<AudioManager>().PlayRandomClipBingoBall();
                 DialogueManager.Instance.EnterDialogueMode(inkJsonSequence2);
                 break;
             case 2:
-                AudioManager.Instance.GetComponent<AudioManager>().PlayRandomClipBingoBall();
+                //AudioManager.Instance.GetComponent<AudioManager>().PlayRandomClipBingoBall();
                 DialogueManager.Instance.EnterDialogueMode(inkJsonSequence3);
                 break;
             case 3:
-                AudioManager.Instance.GetComponent<AudioManager>().PlayClipBingoBallSick();
+                //AudioManager.Instance.GetComponent<AudioManager>().PlayClipBingoBallSick();
                 DialogueManager.Instance.EnterDialogueMode(inkJsonSequence4);
                 break;
             case 4:
-                AudioManager.Instance.GetComponent<AudioManager>().PlayClipBingoBallSick();
+                //AudioManager.Instance.GetComponent<AudioManager>().PlayClipBingoBallSick();
                 DialogueManager.Instance.EnterDialogueMode(inkJsonSequence5);
                 break;
             default:

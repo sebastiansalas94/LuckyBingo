@@ -1,5 +1,7 @@
 EXTERNAL nextSequence()
 EXTERNAL selectBall()
+EXTERNAL playRandomClipBingoBall()
+EXTERNAL setStage(stage)
 
 Are you enjoying the game? #SPEAKER:???
 FUCK! #SPEAKER: Steve
@@ -11,8 +13,11 @@ HEAR THAT BRETT? #SPEAKER: Steve
 (through the walls) Pipe down, asshole! #SPEAKER: Old Lady Next Door
 Fuck you, too! #SPEAKER: Steve
 ~selectBall()
+~playRandomClipBingoBall()
 ~nextSequence()
 I can't BELIEVE it! I got another match! #SPEAKER: Steve
+~setStage(3)
+A massive fire has broken out inside an apartment block on Delacroix and Kessler. Residents are advised to stay indoors and shut their windows. Do not obstruct emergency services. #SPEAKER: BREAKING NEWS
 Wait...Delacroix? #SPEAKER: Steve
 That's three blocks away. #SPEAKER: Steve
 I wondered what that smell was. (sniffs) #SPEAKER: Steve

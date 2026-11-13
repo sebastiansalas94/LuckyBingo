@@ -183,7 +183,8 @@ public class ViewManager : MonoBehaviour
 
     public void GoToEnding(int endingNumber)
     {
-        DisableFrontRoomView();
+        AudioManager.Instance.StopSFX();
+				DisableFrontRoomView();
         DisableRightRoom();
         DisableLeftRoom();
         DisableCloseUps();

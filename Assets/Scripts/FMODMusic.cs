@@ -33,9 +33,9 @@ public class FMODMusic : MonoBehaviour
         // These parameters are GLOBAL in the FMOD project, so they are set on
         // the whole FMOD system, not on the event. Values are the label names
         // exactly as they appear in FMOD Studio.
-        SetGlobalLabel("GameStart", "True");
-        SetGlobalLabel("View", "TV");
-        SetGlobalLabel("Stage", "1");
+        // SetGlobalLabel("GameStart", "True");
+        // SetGlobalLabel("View", "TV");
+        // SetGlobalLabel("Stage", "0");
     }
 
     /// <summary>

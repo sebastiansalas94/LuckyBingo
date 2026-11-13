@@ -612,7 +612,6 @@ GameObject:
   m_Component:
   - component: {fileID: 469667858}
   - component: {fileID: 469667859}
-  - component: {fileID: 469667860}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -648,25 +647,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleScreen
   menuButtons: []
---- !u!114 &469667860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 469667857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85ecb953b5451409da59db96d223dfc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FMODMusic
-  mainSequence:
-    Guid:
-      Data1: 659231831
-      Data2: 1090981364
-      Data3: 1258300860
-      Data4: -1065261319
-    Path: event:/Main Sequence
 --- !u!1 &688631104
 GameObject:
   m_ObjectHideFlags: 0

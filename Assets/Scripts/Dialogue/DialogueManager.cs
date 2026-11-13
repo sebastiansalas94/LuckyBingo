@@ -240,6 +240,10 @@ public class DialogueManager : MonoBehaviour
             ViewManager.Instance.GetComponent<ViewManager>().GoToFrontRoomView();
         });
 
+				currentStory.BindExternalFunction("setStage", (int stage) => {
+					FMODMusic.SetGlobalLabel("Stage", stage.ToString());
+				});
+
         currentStory.BindExternalFunction("goToWindow", () => {
             ViewManager.Instance.GetComponent<ViewManager>().GoToWindow();
         });
