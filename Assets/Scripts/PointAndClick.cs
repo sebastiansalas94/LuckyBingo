@@ -36,11 +36,13 @@ public class PointAndClick : MonoBehaviour
                     hint.Show(hovered.HintIcon, hovered.HintText);
                 hovered.HoveredCount++;
                 hovered.ChangeSprite(true);
+                CursorManager.Instance.SetHand();
             }
             else
             {
                 hint.Hide();
                 GameManager.Instance.ResetBackground();
+                CursorManager.Instance.SetNormal();
             }
         }
 
