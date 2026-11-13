@@ -1,4 +1,5 @@
-Well done, Stephen. #SPEAKER:
+... #SPEAKER:
+Well done, Stephen. 
 You did indeed call Frank and tell him where to stick it.
 In fact, you proceeded to tell that to everyone you met as you frolicked your way to the lottery offices to cash in your big, fat winnings.
 You don't remember the rest of the night, but you remember reading the paper the next day, feeling only a slight tinge of guilt at the tragic story of your neighbour.

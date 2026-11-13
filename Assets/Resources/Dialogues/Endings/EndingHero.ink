@@ -1,4 +1,5 @@
-You trudged through the door and caught your noisy neighbour just in time before he could do harm to his wife. #SPEAKER:
+... #SPEAKER:
+You trudged through the door and caught your noisy neighbour just in time before he could do harm to his wife. 
 The valor and bravery you demonstrated that night is something we rarely see. For that, we commend you.
 Unfortunately, you managed to lose your lottery ticket in the ensuing scuffle. The friendly Old Lady Next Door found it and cashed it in.
 We hear she recently bought a house in the Hamptons.
