@@ -1,8 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class TV : MonoBehaviour, IInteractable
 {
