@@ -1397,8 +1397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ending
   dialoguePanel: {fileID: 1496859077}
   inkJsonEnding1: {fileID: 4900000, guid: a146c13273764f342987dec2403c140b, type: 3}
-  inkJsonEnding2: {fileID: 4900000, guid: a146c13273764f342987dec2403c140b, type: 3}
-  inkJsonEnding3: {fileID: 4900000, guid: a146c13273764f342987dec2403c140b, type: 3}
+  inkJsonEnding2: {fileID: 4900000, guid: 120b2632a39d3524586d4cb3de84aeb4, type: 3}
+  inkJsonEnding3: {fileID: 4900000, guid: c3d8b4112f35a754f801dbc86b2c1051, type: 3}
 --- !u!1 &408480537
 GameObject:
   m_ObjectHideFlags: 0
