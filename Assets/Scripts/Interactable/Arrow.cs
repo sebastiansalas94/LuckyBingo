@@ -3,6 +3,13 @@ using UnityEngine.AdaptivePerformance;
 
 public class Arrow : MonoBehaviour, IInteractable
 {
+    public enum Rooms
+    {
+        Center,
+        Left,
+        Right
+    }
+    [SerializeField] private Rooms RoomToGo = Rooms.Center;
 
     //We can ignore this for now, Arrows doesn't need hints
     public Sprite HintIcon => throw new System.NotImplementedException();
@@ -24,7 +31,7 @@ public class Arrow : MonoBehaviour, IInteractable
     {
         if(clipSFX != null)
             AudioManager.Instance.PlaySFX(clipSFX);
-        ViewManager.Instance.EnableFrontRoomView();
+        GoToRoom();
         spriteRenderer.sprite = arrowDefaultSprite;
     }
 
@@ -40,5 +47,21 @@ public class Arrow : MonoBehaviour, IInteractable
 
     public void ChangeSprite(bool newHoverValue)
     {
+    }
+
+    public void GoToRoom()
+    {
+        switch (RoomToGo)
+        {
+            case Rooms.Center:
+                ViewManager.Instance.EnableFrontRoomView();
+                break;
+            case Rooms.Left:
+                ViewManager.Instance.GoToLeftRoomView();
+                break;
+            case Rooms.Right:
+                ViewManager.Instance.GoToRightRoomView();
+                break;
+        }
     }
 }
