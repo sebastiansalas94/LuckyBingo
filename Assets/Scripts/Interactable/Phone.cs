@@ -26,7 +26,7 @@ public class Phone : MonoBehaviour, IInteractable
     private void Awake()
     {
         dt = GetComponent<DialogueTrigger>();
-        closeUpBackgroundReference.SetActive(false);
+        //closeUpBackgroundReference.SetActive(false);
     }
 
     private void Update()
