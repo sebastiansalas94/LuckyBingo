@@ -5629,6 +5629,7 @@ GameObject:
   - component: {fileID: 1783911521}
   - component: {fileID: 1783911522}
   - component: {fileID: 1783911523}
+  - component: {fileID: 1783911524}
   m_Layer: 0
   m_Name: Phone
   m_TagString: Untagged
@@ -5719,6 +5720,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9444027, y: 2.278727}
   m_EdgeRadius: 0
+--- !u!114 &1783911524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783911520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d186bf2a0ec7b7c44980ba84345a89cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueTrigger
+  inkJson: {fileID: 4900000, guid: df2fb9d10e4df6648a183d17451f1fbb, type: 3}
+  inkJsonSequence1: {fileID: 0}
+  inkJsonSequence2: {fileID: 0}
+  inkJsonSequence3: {fileID: 0}
+  inkJsonSequence4: {fileID: 0}
+  inkJsonSequence5: {fileID: 0}
 --- !u!1 &1815209518
 GameObject:
   m_ObjectHideFlags: 0
