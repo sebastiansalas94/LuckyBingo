@@ -244,6 +244,10 @@ public class DialogueManager : MonoBehaviour
 					FMODMusic.SetGlobalLabel("Stage", stage.ToString());
 				});
 
+        currentStory.BindExternalFunction("showEndingImage", () => {
+            ViewManager.Instance.GetComponent<ViewManager>().ShowEndingImage();
+        });
+
         currentStory.BindExternalFunction("goToWindow", () => {
             ViewManager.Instance.GetComponent<ViewManager>().GoToWindow();
         });

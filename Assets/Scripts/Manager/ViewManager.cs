@@ -192,4 +192,9 @@ public class ViewManager : MonoBehaviour
         EndingView.SetActive(true);
         EndingView.GetComponent<Ending>().StartEnding(endingNumber);
     }
+
+    public void ShowEndingImage()
+    {
+        EndingView.GetComponent<Ending>().ShowEndingImage();
+    }
 }

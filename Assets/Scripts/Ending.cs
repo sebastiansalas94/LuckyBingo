@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Ending : MonoBehaviour
 {
     private DialogueTrigger dt;
+    private SpriteRenderer sr;
 
     [Header("UI Objects")]
     [SerializeField] private GameObject dialoguePanel;
@@ -14,10 +15,14 @@ public class Ending : MonoBehaviour
     public TextAsset inkJsonEnding2;
     public TextAsset inkJsonEnding3;
 
+    [Header("Endings")]
+    public Sprite endingImage1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         dt = GetComponent<DialogueTrigger>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     public void StartEnding(int endingIndex)
@@ -45,5 +50,10 @@ public class Ending : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ShowEndingImage()
+    {
+        sr.sprite = endingImage1;
     }
 }

@@ -1,3 +1,5 @@
+EXTERNAL showEndingImage()
+
 ... #SPEAKER:
 Well done, Stephen. 
 You did indeed call Frank and tell him where to stick it.
@@ -10,3 +12,4 @@ We just want to make sure you don't forget.
 And rest assured, we'll keep in touch.
 Sleep well, Stephen.
 THANK YOU FOR PLAYING LUCKY BINGO
+~showEndingImage()

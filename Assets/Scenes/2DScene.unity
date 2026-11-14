@@ -1433,6 +1433,7 @@ MonoBehaviour:
   inkJsonEnding1: {fileID: 4900000, guid: a146c13273764f342987dec2403c140b, type: 3}
   inkJsonEnding2: {fileID: 4900000, guid: 120b2632a39d3524586d4cb3de84aeb4, type: 3}
   inkJsonEnding3: {fileID: 4900000, guid: c3d8b4112f35a754f801dbc86b2c1051, type: 3}
+  endingImage1: {fileID: 21300000, guid: 7f055a41f9e3e460da2fdc3877bd8de9, type: 3}
 --- !u!1 &408480537
 GameObject:
   m_ObjectHideFlags: 0
@@ -4738,7 +4739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0.39215687}
+  m_Color: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
