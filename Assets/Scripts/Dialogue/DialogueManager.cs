@@ -248,6 +248,10 @@ public class DialogueManager : MonoBehaviour
             ViewManager.Instance.GetComponent<ViewManager>().ShowEndingImage();
         });
 
+        currentStory.BindExternalFunction("showPlayAgainButton", () => {
+            GameManager.Instance.GetComponent<GameManager>().EnablePlayAgainButton();
+        });
+
         currentStory.BindExternalFunction("goToWindow", () => {
             ViewManager.Instance.GetComponent<ViewManager>().GoToWindow();
         });

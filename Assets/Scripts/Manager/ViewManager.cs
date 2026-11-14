@@ -38,16 +38,7 @@ public class ViewManager : MonoBehaviour
     [HideInInspector] public static ViewManager Instance { get; private set; }
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(Instance);
-        }
-        else
-        {
-            Destroy(Instance);
-            Instance = this;
-        }
+        Instance = this;
     }
 
     public void DisableFrontRoomView()

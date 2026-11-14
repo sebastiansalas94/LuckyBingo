@@ -1,3 +1,5 @@
+EXTERNAL showPlayAgainButton()
+
 ... #SPEAKER:
 You trudged through the door and caught your noisy neighbour just in time before he could do harm to his wife. 
 The valor and bravery you demonstrated that night is something we rarely see. For that, we commend you.
@@ -9,3 +11,4 @@ Sometimes, you feel tiny pinpricks on your skin, a reminder of how it felt to ho
 Alas, we had higher hopes for you, Stephen.
 Thank you for playing Lucky Bingo.
 GAME OVER
+~showPlayAgainButton()

@@ -11,16 +11,7 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(Instance);
-        }
-        else
-        {
-            Destroy(Instance);
-            Instance = this;
-        }
+        Instance = this;
 
         playerInput = GetComponent<PlayerInput>();
         interactAction = playerInput.actions["Interact"];

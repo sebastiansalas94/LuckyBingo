@@ -55,5 +55,6 @@ public class Ending : MonoBehaviour
     public void ShowEndingImage()
     {
         sr.sprite = endingImage1;
+        GameManager.Instance.GetComponent<GameManager>().EnablePlayAgainButton();
     }
 }

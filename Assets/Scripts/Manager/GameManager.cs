@@ -2,7 +2,9 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Burst.CompilerServices;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,25 +31,19 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ControlHint Hint;
 
+    [SerializeField] private GameObject playAgainButton;
+
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(Instance);
-        }
-        else
-        {
-            Destroy(Instance);
-            Instance = this;
-        }
+        Instance = this;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ballSequence = 0;
-
+        if(playAgainButton != null)
+            playAgainButton.SetActive(false);
         //AudioManager.Instance.PlayDefaultMusic();
 
         if (Tv != null)
@@ -136,5 +132,15 @@ public class GameManager : MonoBehaviour
     public void SelectBall()
     {
         TvScript.SelectBall();
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("TitleScreen");
+    }
+
+    public void EnablePlayAgainButton()
+    {
+        playAgainButton.SetActive(true);
     }
 }
