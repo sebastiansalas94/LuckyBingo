@@ -56,6 +56,7 @@ public class ViewManager : MonoBehaviour
     }
 
     public void EnableFrontRoomView() {
+        CurrentRoom = Rooms.Center;
         //Turn on all items in front room view
         if (FrontRoomView != null)
             FrontRoomView.SetActive(true);

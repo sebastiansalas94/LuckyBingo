@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Phone : MonoBehaviour, IInteractable
 {
+    private DialogueTrigger dt;
+
     [SerializeField] private SpriteRenderer backgroundImageReference;
     [SerializeField] private Sprite phoneGlow;
 
@@ -23,6 +25,7 @@ public class Phone : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        dt = GetComponent<DialogueTrigger>();
         closeUpBackgroundReference.SetActive(false);
     }
 
@@ -37,7 +40,7 @@ public class Phone : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("Phone clicked");
-
+        dt.StartDialogue();
         //ViewManager.Instance.DisableFrontRoomView();
         //closeUpBackgroundReference.SetActive(true);
     }
