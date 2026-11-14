@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{{ PRODUCT_NAME }}}</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+    #wrap { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+
+    #unity-canvas {
+      display: block;
+      width: min(100vw, calc(100vh * 16 / 9));
+      height: min(100vh, calc(100vw * 9 / 16));
+    }
+    #fs {
+      position: fixed; right: 10px; bottom: 10px;
+      padding: 6px 10px; font: 12px sans-serif;
+      background: rgba(255,255,255,0.15); color: #fff;
+      border: 1px solid rgba(255,255,255,0.3); border-radius: 4px; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrap"><canvas id="unity-canvas" tabindex="-1"></canvas></div>
+  <button id="fs">Fullscreen</button>
+
+  <script src="Build/{{{ LOADER_FILENAME }}}"></script>
+  <script>
+    createUnityInstance(document.querySelector("#unity-canvas"), {
+      dataUrl: "Build/{{{ DATA_FILENAME }}}",
+      frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
+#if USE_THREADS
+      workerUrl: "Build/{{{ WORKER_FILENAME }}}",
+#endif
+#if USE_WASM
+      codeUrl: "Build/{{{ CODE_FILENAME }}}",
+#endif
+#if MEMORY_FILENAME
+      memoryUrl: "Build/{{{ MEMORY_FILENAME }}}",
+#endif
+#if SYMBOLS_FILENAME
+      symbolsUrl: "Build/{{{ SYMBOLS_FILENAME }}}",
+#endif
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: {{{ JSON.stringify(COMPANY_NAME) }}},
+      productName: {{{ JSON.stringify(PRODUCT_NAME) }}},
+      productVersion: {{{ JSON.stringify(PRODUCT_VERSION) }}},
+    }).catch(function (message) { alert(message); });
+
+    // Fullscreen the whole page, not the canvas, so the 16:9 letterbox still applies.
+    document.querySelector("#fs").onclick = function () {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen();
+    };
+    document.addEventListener("fullscreenchange", function () {
+      document.querySelector("#fs").textContent = document.fullscreenElement ? "Exit fullscreen" : "Fullscreen";
+    });
+  </script>
+</body>
+</html>
