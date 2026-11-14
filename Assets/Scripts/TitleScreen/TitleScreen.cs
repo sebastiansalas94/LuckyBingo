@@ -16,9 +16,18 @@ public class TitleScreen : MonoBehaviour
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject mainMenuButtons;
 
+    [SerializeField] private GameObject IntroPanel;
+    [SerializeField] private GameObject IntroSequence;
+
     void Start()
     {
         LoadMainMenu();
+    }
+
+    public void PlayIntroSequence()
+    {
+        IntroPanel.SetActive(true);
+        IntroSequence.GetComponent<IntroSequence>().StartIntroSequence();
     }
 
     public void LoadGameplayScene(string sceneName)
@@ -39,6 +48,8 @@ public class TitleScreen : MonoBehaviour
     {
         creditsPanel.SetActive(false);
         creditsButton.SetActive(false);
+
+        IntroPanel.SetActive(false);
 
         mainMenuPanel.SetActive(true);
         mainMenuButtons.SetActive(true);
